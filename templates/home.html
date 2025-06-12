@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Diabetes Prediction Form</title>
+    <style>
+        body {
+    font-family: Arial, sans-serif;
+    background-image: url("{{ url_for('static', filename='background.jpg') }}");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    padding: 30px;
+}
+        .heading{
+            border: 2px solid black ;
+            height: 65px;
+            width: 30%;
+            margin-left: 35%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 10px;
+            background-color: #75b5d1;
+            margin-bottom: 20px;
+        }
+        .form-heading{
+            font-size: 2rem;
+        }
+        form {
+            background-color: white;
+            padding: 30px;
+            border-radius: 10px;
+            max-width: 800px;
+            margin: 0 auto;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            background-color: #7dd680;
+        }
+
+        h2 {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .form-grid {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            justify-content: space-between;
+        }
+
+        .form-group {
+            flex: 0 0 48%;
+            display: flex;
+            flex-direction: column;
+        }
+
+        label {
+            margin-bottom: 5px;
+            font-weight: bold;
+        }
+
+        input {
+            padding: 10px;
+            font-size: 16px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        button {
+            display: block;
+            margin: 30px auto 0;
+            padding: 12px 30px;
+            font-size: 18px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #45a049;
+        }
+
+        .btn-secondary {
+            background-color: #007BFF;
+        }
+
+        .btn-secondary:hover {
+            background-color: #0056b3;
+        }
+        .btns{
+            display: flex;
+        }
+    </style>
+</head>
+<body>
+    <div class="heading"><h2 class="form-heading">Diabetes Prediction Form</h2></div>
+    <form action="{{ url_for('predict_datapoint')}}" method="post">
+        <div class="form-grid">
+            {% set values = request.form %}
+            <div class="form-group">
+                <label for="Pregnancies">Pregnancies:</label>
+                <input type="number" id="Pregnancies" name="Pregnancies" required value="{{ values.get('Pregnancies', '') }}">
+            </div>
+
+            <div class="form-group">
+                <label for="Glucose">Glucose:</label>
+                <input type="number" id="Glucose" name="Glucose" required value="{{ values.get('Glucose', '') }}">
+            </div>
+
+            <div class="form-group">
+                <label for="BloodPressure">Blood Pressure:</label>
+                <input type="number" id="BloodPressure" name="BloodPressure" required value="{{ values.get('BloodPressure', '') }}">
+            </div>
+
+            <div class="form-group">
+                <label for="SkinThickness">Skin Thickness:</label>
+                <input type="number" id="SkinThickness" name="SkinThickness" required value="{{ values.get('SkinThickness', '') }}">
+            </div>
+
+            <div class="form-group">
+                <label for="Insulin">Insulin:</label>
+                <input type="number" id="Insulin" name="Insulin" required value="{{ values.get('Insulin', '') }}">
+            </div>
+
+            <div class="form-group">
+                <label for="BMI">BMI:</label>
+                <input type="number" step="any" id="BMI" name="BMI" required value="{{ values.get('BMI', '') }}">
+            </div>
+
+            <div class="form-group">
+                <label for="DiabetesPedigreeFunction">Diabetes Pedigree Function:</label>
+                <input type="number" step="any" id="DiabetesPedigreeFunction" name="DiabetesPedigreeFunction" required value="{{ values.get('DiabetesPedigreeFunction', '') }}">
+            </div>
+
+            <div class="form-group">
+                <label for="Age">Age:</label>
+                <input type="number" id="Age" name="Age" required value="{{ values.get('Age', '') }}">
+            </div>
+        </div>
+
+        <!-- Inside <form> tag, below the Submit button -->
+        <div class="btns">
+            <button type="submit" class="btn btn-primary btn-block btn-large">Submit</button>
+            <button type="button" class="btn btn-secondary btn-block btn-large" onclick="window.location.href='/predictdata'">New Data</button>
+        </div>  
+
+    </form>
+
+    {% if result %}
+        <h2 class="heading" style="text-align:center; margin-top:20px;">Person is : {{ result }}</h2>
+    {% endif %}
+
+
+</body>
+</html>
