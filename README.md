@@ -75,3 +75,63 @@ Performed detailed analysis to:
    ```bash
    git clone https://github.com/yourusername/Diabetes_Predicter_ML.git
    cd Diabetes_Predicter_ML
+
+2. **Install required dependencies**
+    Make sure you have Python installed (recommended: Python 3.9+). Then run:
+    pip install -r requirements.txt
+
+3. **Run the Flask Application**
+    python app.py
+
+4. **Open in Browser**
+    Navigate to http://127.0.0.1:5000/ in your web browser to use the web app.
+
+## 📁 Project Structure
+
+Diabetes_Predicter_ML/
+│
+├── static/                   # CSS / Images (if any)
+├── templates/                # HTML templates (form & result pages)
+│   └── home.html
+│
+├── model/                    # Pickled ML model
+│   └── diabetes_model.pkl
+│
+├── diabetes.csv              # Original Dataset
+├── app.py                    # Flask application
+├── EDA.ipynb                 # Notebook for data analysis & model training
+├── requirements.txt          # Python dependencies
+└── README.md                 # Project documentation
+
+## ✅ Results
+- Model Used: Logistic Regression
+- Test Accuracy: 77%
+- Real-time predictions based on new user input
+- Intuitive UI built with HTML & CSS for better user interaction
+
+## 🛠️ Technologies Used
+
+- Python
+- Pandas, NumPy, Matplotlib, Seaborn
+- Scikit-learn
+- Flask
+- HTML, CSS
+- Pickle
+
+## 🚧 Future Improvements
+
+- Improve accuracy using advanced models like Random Forest, XGBoost, or Neural Networks
+- Add data validation and input range hints
+- Host the app on cloud (Heroku, Render, etc.)
+- Implement user login and result tracking
+
+## 📜 License
+- This project is open source and available under the MIT License.
+
+## 📬 Contact
+
+- Anubhav Gupta
+    Feel free to reach out or connect with me for collaborations or questions.
+- Github Profile 
+    https://github.com/anubhav7723
+
