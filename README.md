@@ -131,7 +131,7 @@ Diabetes_Predicter_ML/
 ## 📬 Contact
 
 - Anubhav Gupta
-    Feel free to reach out or connect with me for collaborations or questions.
+    - Feel free to reach out or connect with me for collaborations or questions.
 - Github Profile 
     https://github.com/anubhav7723
 
